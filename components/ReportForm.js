@@ -8,6 +8,34 @@ export default function ReportForm({ contract, account }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
+  const validateFile = (file) => {
+    const allowedTypes = ['application/pdf', 'text/plain', 'image/jpeg', 'image/jpg'];
+    const maxSize = 10 * 1024 * 1024; // 10MB
+
+    if (!allowedTypes.includes(file.type)) {
+      throw new Error('Invalid file type. Please upload PDF, TXT, or JPEG files only.');
+    }
+
+    if (file.size > maxSize) {
+      throw new Error('File size exceeds 10MB limit.');
+    }
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      try {
+        validateFile(selectedFile);
+        setFile(selectedFile);
+        setError('');
+      } catch (error) {
+        setError(error.message);
+        setFile(null);
+        e.target.value = null;
+      }
+    }
+  };
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (!reportText.trim()) return;
@@ -98,7 +126,8 @@ export default function ReportForm({ contract, account }) {
               <input
                 type="file"
                 className="hidden"
-                onChange={e => setFile(e.target.files[0])}
+                onChange={handleFileChange}
+                accept=".pdf,.txt,.doc,.docx,.jpeg,.jpg"
                 disabled={isSubmitting}
               />
             </label>
