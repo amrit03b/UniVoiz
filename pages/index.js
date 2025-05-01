@@ -137,7 +137,7 @@ function Home() {
           </h1>
           <p className="text-xl text-sky-800 max-w-2xl mx-auto leading-relaxed font-poppins">
             Raise issues faced in your university securely and anonymously on the blockchain.
-            <span className="block mt-2 text-sky-600">Your concerns matter. Your identity is never revealed.</span>
+            <span className="block mt-2 text-sky-600">Your concerns matter. Your identity is never revealed unless you want to.</span>
           </p>
         </div>
 

@@ -91,37 +91,37 @@ export default function ReportForm({ contract, account }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 bg-blue-50/90 p-8 rounded-2xl shadow-xl border border-blue-300">
       <div className="space-y-4">
         <div>
-          <label htmlFor="report" className="block text-sm font-medium text-gray-300 mb-2">
+          <label htmlFor="report" className="block text-sm font-semibold text-blue-900 mb-2">
             Issue Details
           </label>
           <textarea
             id="report"
             value={reportText}
             onChange={e => setReportText(e.target.value)}
-            placeholder="Describe the issue you are facing at your university. Your submission is anonymous."
+            placeholder="Describe the issue you are facing at your university. Your submission is anonymous. But if you want you can reveal your identity."
             required
-            className="w-full px-4 py-2 bg-gray-800/50 border border-gray-700/50 rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 text-gray-100 placeholder-gray-500 h-48 resize-none"
+            className="w-full px-4 py-2 bg-blue-100 border border-blue-400 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-blue-900 placeholder-blue-500 h-48 resize-none font-medium"
             disabled={isSubmitting}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-300 mb-2">
+          <label className="block text-sm font-semibold text-blue-900 mb-2">
             Supporting Documents (Optional)
           </label>
           <div className="flex items-center justify-center w-full">
-            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-700/30 hover:bg-gray-700/50 transition-colors">
+            <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-blue-400 border-dashed rounded-lg cursor-pointer bg-blue-100 hover:bg-blue-200 transition-colors">
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                <svg className="w-8 h-8 mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-8 h-8 mb-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                 </svg>
-                <p className="mb-2 text-sm text-gray-400">
+                <p className="mb-2 text-sm text-blue-700">
                   <span className="font-semibold">Click to upload</span> or drag and drop
                 </p>
-                <p className="text-xs text-gray-500">PDF, DOC, TXT (MAX. 10MB)</p>
+                <p className="text-xs text-blue-500">PDF, DOC, TXT, JPEG (MAX. 10MB)</p>
               </div>
               <input
                 type="file"
@@ -136,7 +136,7 @@ export default function ReportForm({ contract, account }) {
       </div>
 
       {error && (
-        <div className="p-4 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400">
+        <div className="p-4 bg-red-100 border border-red-400 rounded-lg text-red-700 font-semibold">
           {error}
         </div>
       )}
@@ -145,21 +145,21 @@ export default function ReportForm({ contract, account }) {
         <button
           type="submit"
           disabled={isSubmitting || !reportText.trim()}
-          className="relative px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="relative px-8 py-3 bg-gradient-to-r from-blue-700 to-blue-500 text-white font-bold rounded-lg hover:from-blue-600 hover:to-blue-400 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg"
         >
           {isSubmitting ? (
             <>
-              <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+              <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
               </svg>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-blue-400">
                 Submitting...
               </span>
             </>
           ) : (
             <>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-blue-400">
                 Submit Issue
               </span>
             </>
@@ -167,7 +167,7 @@ export default function ReportForm({ contract, account }) {
         </button>
 
         {status && (
-          <div className={`text-sm ${status.includes('Error') ? 'text-red-400' : 'text-green-400'}`}>
+          <div className={`text-sm font-semibold ${status.includes('Error') ? 'text-red-700' : 'text-blue-700'}`}>
             {status}
           </div>
         )}
