@@ -1,0 +1,41 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\amrit\\Desktop\\whistleblower-app\\contracts\\WhistleBlower.sol": {
+      "lastModificationDate": 1745179172663,
+      "contentHash": "4b3591fe77885b6bc260ab3ad50fc0df",
+      "sourceName": "contracts/WhistleBlower.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "WhistleBlower"
+      ]
+    }
+  }
+}

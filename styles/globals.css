@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-sky-50 text-sky-800;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-sky-500 to-blue-600 text-white font-semibold rounded-lg 
+           shadow-lg hover:from-sky-600 hover:to-blue-700 transition-all transform hover:scale-105 
+           disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2;
+  }
+
+  .card {
+    @apply bg-white/90 backdrop-blur-xl rounded-xl shadow-soft p-6 border border-sky-200/50;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/80 border border-sky-200/50 rounded-lg 
+           focus:ring-2 focus:ring-sky-500 focus:border-transparent 
+           text-sky-800 placeholder-sky-400;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-500/50 rounded-full hover:bg-primary-500/70;
+}
+
+/* Animations */
+@keyframes glow {
+  0%, 100% {
+    @apply shadow-glow opacity-50;
+  }
+  50% {
+    @apply shadow-glow opacity-75;
+  }
+}
+
+/* Custom 3D Animation Styles */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-x-45 {
+  transform: rotateX(45deg);
+}
+
+.rotate-y-45 {
+  transform: rotateY(45deg);
+}
+
+.-rotate-x-45 {
+  transform: rotateX(-45deg);
+}
+
+.-rotate-y-45 {
+  transform: rotateY(-45deg);
+}
+
+/* Animation Delays */
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* GPU Acceleration */
+.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* Custom Shadow Effects */
+.shadow-3d {
+  box-shadow: 0 10px 30px -5px rgba(56, 189, 248, 0.3);
+}
+
+/* Smooth Transitions */
+.transition-3d {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+/* Hover Effects */
+.hover-lift {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px) translateZ(20px);
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+} 
